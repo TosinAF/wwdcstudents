@@ -10,17 +10,32 @@ router.get('/', function(req, res) {
 
   Student.find({},function(err, docs) {
 
-		for (var i = 0; i < docs.length; i++) {
-			console.log(docs[i].name, docs[i].twitter);
-		}
+		if (err) console.log(err);
 
-  		res.send(docs);
+		console.log(docs[0].username);
+
+  		res.render('index', {submissions: docs});
+
+    });
+});
+
+router.get('/:username', function(req, res) {
+
+	Student.findOne({ username: req.params.username }, function(err, doc) {
+		
+		//console.log(typeof(doc));
+		
+		console.log(doc);
+		//console.log(doc.apps[0].device);
+		//res.send(doc);
+  		res.render('detail', {submission : doc});
+  		console.log(doc);
     });
 });
 
 router.get('/search', function(req, res) {
 
-	Student.find({ name: /tosin/i },function(err, docs) {
+	Student.find({ name: /tosin/i }, function(err, docs) {
 
 		for (var i = 0; i < docs.length; i++) {
 			console.log(docs[i].name, docs[i].twitter);
@@ -28,8 +43,6 @@ router.get('/search', function(req, res) {
 
   		res.send(docs);
     });
-
-  //res.render('index', { title: 'Demo 1' });
 });
 
 

@@ -1,5 +1,58 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title
+    link(href='stylesheets/app.css', type='text/css', rel='stylesheet')
+  body
+    header
+      .container
+        .full-width
+          a#logo(href='#')
+            | #
+            span wwdc
+            | students
+          nav#main-nav
+            ul
+              li.active
+                a(href='#') Stream
+              li
+                a(href='#') Github
+              li
+                a(href='#') Support
+ 
+    #header-push
+    .container
+      section#filter.full-width
+        nav#filter-nav
+          ul
+            li
+              | Showing:
+              a(href='#')  Latest posts
+            li
+              | Platform:
+              a(href='#')  All
+ 
+      .clear
+      section#stream
+        ul
+            - each submission in submissions
+              li
+                a(href='/#{submission.username}')
+                  img(src='http://graph.facebook.com/#{submission.facebookUsername}/picture?width=400&height=400', alt='')
+                  span.overlay
+                    span.name #{submission.name}
+                    span.description #{submission.age} Years Old
+        .clear
+            
+      
+      footer.full-width
+        p.left
+          |  Made with
+          span  ♥
+          |  by
+          a(href='#')  Sjors Snoeren
+          |  &
+          a(href='#')  Tosin Afolabi
+        p.right Not affiliated with Apple Inc.
+ 

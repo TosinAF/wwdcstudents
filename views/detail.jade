@@ -1,0 +1,59 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title
+    link(href='stylesheets/app.css', type='text/css', rel='stylesheet')
+  body
+    header
+      .container
+        .full-width
+          a#logo(href='#')
+            | #
+            span wwdc
+            | students
+          nav#main-nav
+            ul
+              li
+                a(href='#') Stream
+              li
+                a(href='#') Github
+              li
+                a(href='#') Support
+
+    #header-push
+    .container
+      section#detail-header
+        h2 #{submission.name}
+      //
+         detail-header 
+      .clear
+      - src = submission.apps[0].appIOLink + '?orientation=' + submission.apps[0].orientation + '&device=' + submission.apps[0].device
+
+        if submission.apps[0].device == "iphone5" && submission.apps[0].orientation == "portrait"
+          section#detail
+            iframe#app(src='#{src}', height='607px', width='291px', frameborder='0', allowtransparency='true', scrolling='no')
+
+        else if submission.apps[0].device == "iphone5" && submission.apps[0].orientation == "landscape"
+          section#detail
+            iframe#app(src='#{src}', height='289px', width='607px', frameborder='0', allowtransparency='true', scrolling='no')
+
+        else if submission.apps[0].device == "ipadmini" && submission.apps[0].orientation == "portrait"
+          section#detail
+            iframe#app(src='#{src}', height='886px', width='595px', frameborder='0', allowtransparency='true', scrolling='no')
+
+        else if submission.apps[0].device == "ipadmini" && submission.apps[0].orientation == "landscape"
+          section#detail
+            iframe#app(src='#{src}', height='600px', width='882px', frameborder='0', allowtransparency='true', scrolling='no')
+ 
+      footer.full-width
+        p
+          |  Made with
+          span  ♥
+          |  by
+          a(href='#')  Sjors Snoeren
+          |  &
+          a(href='#')  Tosin Afolabi
+
+    script(src='javascripts/jquery.js')
+    script(src='javascripts/main.js')

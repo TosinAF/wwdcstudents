@@ -1,34 +1,38 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-
-// Auctual Links not Usernames
-// Youtube Links only for videos
-// Orientation & Device Fields needed to 
-// construct the iframe url to embed the app from app.io
+var ContentType = {
+	CONTENT_TYPE_APPIO: "appio",
+  	CONTENT_TYPE_VIDEO: "video",
+  	CONTENT_TYPE_OTHER: "other",
+};
 
 var Student = new Schema({
 
   name:  			String,
+  age: 				Number,
   website: 			String,
-  twitter:  		String,
-  facebook: 		String,
+  username: 		String,
+  twitterUsername: 	String,
+  facebookUsername: String,
 
   apps: [{
 
   	year: 			Number,
   	accepted: 		Boolean,
-    video_link: 	String, 
+    videoLink: 		String, 
     source: 		String,
     likes: 			Number,
 
-    app_io_link: 	String,
+    appIOLink: 		String,
     orientation: 	String,
-    device: 		String
+    device: 		String,
+
+    contentType: 	String
 
   }],
 
   date: { type: Date, default: Date.now }
-  
+
 });
 
 mongoose.model('Student', Student);
