@@ -12,7 +12,8 @@ require('./models/Student')
 
 var mongoose = require('mongoose');
 var Student = mongoose.model("Student");
-mongoose.connect('mongodb://localhost/WWDCStudents');
+var mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/WWDCStudents'
+mongoose.connect(mongoUri);
 
 var app = express();
 
