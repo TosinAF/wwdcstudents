@@ -2,24 +2,25 @@ doctype html
 html
   head
     meta(charset='utf-8')
-    title
-    link(href='stylesheets/app.css', type='text/css', rel='stylesheet')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title #wwdcstudents - An interactive showcase of WWDC Student submissions.
+    link(href='../stylesheets/app.css', type='text/css', rel='stylesheet')
   body
     header
       .container
         .full-width
-          a#logo(href='#')
+          a#logo(href='/')
             | #
             span wwdc
             | students
           nav#main-nav
             ul
               li.active
-                a(href='#') Stream
+                a(href='/') Stream
               li
-                a(href='#') Github
+                a(href='https://twitter.com/wwdcstudents') Twitter
               li
-                a(href='#') Support
+                a(href='#') Add Me!
  
     #header-push
     .container
@@ -42,17 +43,36 @@ html
                   img(src='http://graph.facebook.com/#{submission.facebookUsername}/picture?width=400&height=400', alt='')
                   span.overlay
                     span.name #{submission.name}
-                    span.description #{submission.age} Years Old
+                    - if (submission.age != 0)
+                      span.description #{submission.age} Years Old
+        .clear
+
+      section#pagination.full-width
+        ul
+          - if (currentPage != 1)
+            li.left
+              a(href='/page/#{currentPage - 1}')
+                i.arrow-left
+                | Previous page
+          - if (currentPage != pageCount)
+            li.right
+              a(href='/page/#{currentPage + 1}')
+                | Next page
+                i.arrow-right
         .clear
             
-      
       footer.full-width
         p.left
-          |  Made with
-          span  ♥
-          |  by
-          a(href='#')  Sjors Snoeren
-          |  &
-          a(href='#')  Tosin Afolabi
-        p.right Not affiliated with Apple Inc.
+            |  Made with
+            span   ♥
+            |  by
+            a(href='https://twitter.com/sjorssnoeren')  Sjors Snoeren
+            |  &
+            a(href='https:/twitter.com/tosinaf')  Tosin Afolabi 
+        p.right Not affiliated with Apple Inc.   
+      
+  script(type='text/javascript', src='//use.typekit.net/tqn7vuf.js')
+  script(type='text/javascript').
+    try{Typekit.load();}catch(e){console.log("fail");}
+
  

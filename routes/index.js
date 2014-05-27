@@ -3,34 +3,42 @@ require('../models/Student')
 var express = require('express');
 var router = express.Router();
 
-var mongoose = require('mongoose');
+//var mongoose = require('mongoose');
+var mongoose = require('mongoose-paginate');
 var Student = mongoose.model("Student");
 
 router.get('/', function(req, res) {
 
-  Student.find({},function(err, docs) {
+  	var currentPage = 1;
+	var numberOfReultsToShow = 8;
+	
+	Student.paginate({}, currentPage, numberOfReultsToShow, function(error, pageCount, paginatedResults, itemCount) {
+	  
+	  if (error) {
+	    console.error(error);
+	  }
 
-		if (err) console.log(err);
+	  res.render('index', {submissions: paginatedResults, currentPage : Number(currentPage), pageCount : pageCount});
 
-		console.log(docs[0].username);
-
-  		res.render('index', {submissions: docs});
-
-    });
+	});
 });
 
-router.get('/:username', function(req, res) {
+router.get('/page/:pageNumber', function(req, res) {
 
-	Student.findOne({ username: req.params.username }, function(err, doc) {
-		
-		//console.log(typeof(doc));
-		
-		console.log(doc);
-		//console.log(doc.apps[0].device);
-		//res.send(doc);
-  		res.render('detail', {submission : doc});
-  		console.log(doc);
-    });
+	var currentPage = req.params.pageNumber;
+	var numberOfReultsToShow = 8;
+
+	if (currentPage == 0) currentPage = 1;
+	
+	Student.paginate({}, currentPage, numberOfReultsToShow, function(error, pageCount, paginatedResults, itemCount) {
+	  
+	  if (error) {
+	    console.error(error);
+	  }
+
+	  res.render('index', {submissions: paginatedResults, currentPage : Number(currentPage), pageCount : pageCount});
+
+	});
 });
 
 router.get('/search', function(req, res) {
@@ -45,5 +53,23 @@ router.get('/search', function(req, res) {
     });
 });
 
+router.get('/hello', function(req, res){
+
+  res.send('Hey! You found my easter egg :)');
+
+});
+
+router.get('/:username', function(req, res) {
+
+	Student.findOne({ username: req.params.username }, function(err, doc) {
+
+		if (doc == null) {
+			res.send("404. No user was found.");
+			return;
+		}
+
+  		res.render('detail', {submission : doc});
+    });
+});
 
 module.exports = router;

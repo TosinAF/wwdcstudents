@@ -20,7 +20,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-app.use(favicon());
+app.use(favicon(path.join(__dirname, 'public/images/favicon.png')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
@@ -36,10 +36,6 @@ app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
-});
-
-app.get('/hello', function(req, res){
-  res.send('Hello');
 });
 
 /// error handlers
