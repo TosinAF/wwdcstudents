@@ -18,21 +18,20 @@ html
               li.active
                 a(href="#")  Stream
               li
-                a(href='https://twitter.com/wwdcstudents', target="_blank")  Twitter
+                a(href="https://twitter.com/wwdcstudents")  Twitter
               li
                 a(href="#") Add Me!
 
     section#filter
       .container
-          nav#filter-nav.full-width
-            ul
-              li
-                | Showing:
-                a(href="#")  Latest posts
-              li
-                | Platform:
-                a(href="#")  All
-          a.twitter-share-button(href="https://twitter.com/share", data-text="An interactive showcase of WWDC 2014 Student submissions - some really impressive stuff here!" data-via="wwdcstudents") Tweet
+        nav#filter-nav.full-width
+          ul
+            li
+              | Showing:
+              a(href="#")  Latest posts
+            li
+              | Platform:
+              a(href="#")  All
 
     .container
       section#stream
@@ -76,13 +75,3 @@ html
   script(type='text/javascript', src='//use.typekit.net/tqn7vuf.js')
   script(type='text/javascript').
     try{Typekit.load();}catch(e){console.log("fail");}
-  script
-    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-  script.
-    (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&appId=439773292818484&version=v2.0";
-    fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));

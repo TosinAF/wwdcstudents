@@ -3,7 +3,6 @@ require('../models/Student')
 var express = require('express');
 var router = express.Router();
 
-//var mongoose = require('mongoose');
 var mongoose = require('mongoose-paginate');
 var Student = mongoose.model("Student");
 

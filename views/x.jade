@@ -1,85 +1,73 @@
 doctype html
 html
   head
-    meta(charset='utf-8')
-    title #wwdcstudents - #{submission.name}
-    link(href='stylesheets/app.css', type='text/css', rel='stylesheet')
+    meta(charset="utf-8")
+    title
+    link(href="stylesheets/app.css", type="text/css", rel="stylesheet")
   body
     header
       .container
         .full-width
-          a#logo(href='/')
+          a#logo(href="#")
             | #
             span wwdc
             | students
           nav#main-nav
             ul
               li
-                a(href='#') Stream
+                a(href="#") Stream
               li
-                a(href='#') Github
+                a(href="#") Github
               li
-                a(href='#') Support
-
+                a(href="#") Support
+        // full-width
+      // container
     section#detail-header
       .container
         .full-width
-          - if (submission.age != 0) 
-            h2
-              | #{submission.name},
-              span #{submission.age}
-          - else
-            h2
-              | #{submission.name}
+          h2
+            | Sjors Snoeren,
+            span 18
           h3 iOS
+          a.twitter-share-button(href="https://twitter.com/share", data-hashtags="wwdcstudents") Tweet
+          script
+            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
           .clear
-
+        // full-width
+      // container
+    // detail-header
     nav#social-nav
       ul
         li
-          a(href='#{submission.website}')
+          a(href="#")
             i.link
         li
-          a(href='https://twitter.com/#{submission.twitterUsername}')
+          a(href="#")
             i.twitter
         li
-          a(href='https://facebook.com/#{submission.facebookUsername}')
+          a(href="#")
             i.facebook
         li
-          a(href='#')
+          a(href="#")
             i.github
-
     .container
       section#detail
-        - src = submission.apps[0].appIOLink + '?orientation=' + submission.apps[0].orientation + '&device=' + submission.apps[0].device + "&autoplay=true"
-
-        if submission.apps[0].device == "iphone5" && submission.apps[0].orientation == "portrait"
-          section#detail
-            iframe#app(src='#{src}', height='607px', width='291px', frameborder='0', allowtransparency='true', scrolling='no')
-
-        else if submission.apps[0].device == "iphone5" && submission.apps[0].orientation == "landscape"
-          section#detail
-            iframe#app(src='#{src}', height='289px', width='607px', frameborder='0', allowtransparency='true', scrolling='no')
-
-        else if submission.apps[0].device == "ipadmini" && submission.apps[0].orientation == "portrait"
-          section#detail
-            iframe#app(src='#{src}', height='886px', width='595px', frameborder='0', allowtransparency='true', scrolling='no')
-
-        else if submission.apps[0].device == "ipadmini" && submission.apps[0].orientation == "landscape"
-          section#detail
-            iframe#app(src='#{src}', height='600px', width='882px', frameborder='0', allowtransparency='true', scrolling='no')
-    
+        // <iframe src="https://app.io/km1LE4?orientation=portrait&device=iphone5" height="607px" width="291px" frameborder="0" allowtransparency="true" scrolling="no" id="app"></iframe>
+        iframe(src="https://app.io/06E6dj?orientation=landscape&device=ipadmini", height="600px", width="882px", frameborder="0", allowtransparency="true", scrolling="no")
+      // detail
+    // container
     footer
       .container
         .full-width
           p.left
-            |  Made with
-            span  ♥
+            | Made with
+            span &#9829;
             | by
-            a(href='#')  Sjors Snoeren
-            | &
-            a(href='#')  Tosin Afolabi
+            a(href="#") Sjors Snoeren
+            | &#38;
+            a(href="#") Tosin Afolabi
           p.right Not affiliated with Apple Inc.
-
-    script(src='javascripts/jquery.js')
-    script(src='javascripts/main.js')
+        // full-width
+      // container
+    script(src="js/jquery.js")
+    script(src="js/main.js")
