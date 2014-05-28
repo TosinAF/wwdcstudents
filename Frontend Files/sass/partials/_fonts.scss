@@ -1,0 +1,80 @@
+/* Fonts
+---------------------------------------- */
+@font-face {
+	font-family: 'icons';
+	src:url('fonts/icons.eot?p4mb76');
+	src:url('fonts/icons.eot?#iefixp4mb76') format('embedded-opentype'),
+		url('fonts/icons.woff?p4mb76') format('woff'),
+		url('fonts/icons.ttf?p4mb76') format('truetype'),
+		url('fonts/icons.svg?p4mb76#icons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+i {
+	font-family: 'icons';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+}
+
+/* --- UI --- */
+i.link:before {
+	content: "\e005";
+}
+i.heart:before {
+	content: "\e100";
+}
+i.circle-cross:before {
+	content: "\e101";
+}
+i.arrow-left:before {
+	content: "\e200";
+}
+i.arrow-right:before {
+	content: "\e201";
+}
+
+/* --- Social --- */
+i.vimeo:before {
+	content: "\e600";
+}
+i.twitter:before {
+	content: "\e203";
+}
+i.facebook:before {
+	content: "\e204";
+}
+i.googleplus:before {
+	content: "\e205";
+}
+i.pinterest:before {
+	content: "\e601";
+}
+i.tumblr:before {
+	content: "\e602";
+}
+i.linkedin:before {
+	content: "\e206";
+}
+i.dribbble:before {
+	content: "\e207";
+}
+i.lastfm:before {
+	content: "\e603";
+}
+i.rdio:before {
+	content: "\e604";
+}
+i.spotify:before {
+	content: "\e605";
+}
+i.instagram:before {
+	content: "\e208";
+}
+i.skype:before {
+	content: "\e606";
+}
+i.behance:before {
+	content: "\e607";
+}

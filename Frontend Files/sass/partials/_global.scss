@@ -1,0 +1,57 @@
+$turquoise: #18BBB7;
+
+/* Global
+---------------------------------------- */
+* {
+	-webkit-font-smoothing: antialiased;
+}
+body {
+	color: #c8c8c8;
+	font-family: 'Proxima Nova Soft', 'Proxima Nova', 'Helvetica Neue', sans-serif;
+	a {
+		color: #222;
+		text-decoration: none;
+	}
+}
+
+h2 {
+	color: #333;
+	font-size: 22px;
+	font-weight: 700;
+}
+
+p {
+	font-size: 14px;
+}
+
+img {
+	display: block;
+}
+
+$susy: (
+	columns: 12,
+	gutters: 0.8,
+	gutter-position: split
+);
+
+.container {
+	@include container(1100px);
+}
+
+.full-width {
+	@include span(12);
+}
+
+/* Helpers
+---------------------------------------- */
+.clear {
+	clear: both;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}

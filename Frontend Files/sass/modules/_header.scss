@@ -1,0 +1,58 @@
+/* Header
+---------------------------------------- */
+header {
+	background: $turquoise;
+	position: relative;
+}
+
+#logo {
+	color: #fff;
+	color: rgba(#fff, 0.6);
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 80px;
+	@include inline-block();
+	@include transition(200ms ease all);
+	&:hover {
+		color: rgba(#fff, 0.8);
+	}
+	&:active {
+		color: rgba(#fff, 0.6);
+	}
+	span {
+		color: #fff;
+	}
+}
+
+#main-nav {
+	float: right;
+	li {
+		@include inline-block();
+		margin-right: -4px;
+		margin-left: 40px;
+		a {
+			color: #fff;
+			color: rgba(#fff, 0.6);
+			font-size: 14px;
+			font-weight: 600;
+			line-height: 80px;
+			text-transform: uppercase;
+			position: relative;
+			display: block;
+			@include transition(200ms ease all);
+			&:hover {
+				color: #fff;
+			}
+		}
+		&.active a:after {
+			width: 14px;
+			height: 3px;
+			background: #fff;
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			margin-left: -7px;
+		}
+	}
+}

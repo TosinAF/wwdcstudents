@@ -1,0 +1,34 @@
+/* Pagination
+---------------------------------------- */
+#pagination {
+	padding-bottom: 40px;
+	li {
+		@include inline-block();
+		margin-right: -4px;
+		a {
+			color: #fff;
+			background: $turquoise;
+			font-size: 14px;
+			font-weight: 600;
+			line-height: 46px;
+			text-transform: uppercase;
+			@include inline-block();
+			padding: 0 20px;
+			@include border-radius(3px);
+			&:active {
+				background: darken($turquoise, 10%);
+			}
+		}
+	}
+	.left {
+		i {
+			padding-right: 10px;
+		}
+	}
+	.right {
+		margin-right: 1px;
+		i {
+			padding-left: 10px;
+		}
+	}
+}

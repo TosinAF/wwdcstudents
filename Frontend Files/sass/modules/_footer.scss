@@ -1,0 +1,21 @@
+/* Footer
+---------------------------------------- */
+footer {
+	line-height: 80px;
+	border-top: 1px solid #eee;
+	p {
+		font-weight: 600;
+		text-transform: uppercase;
+	}
+	a {
+		padding-bottom: 1px;
+		border-bottom: 1px solid #fff;
+		@include transition(200ms ease all);
+		&:hover {
+			border-bottom: 1px solid #ddd;
+		}
+	}
+	span {
+		color: #eb0420;
+	}
+}

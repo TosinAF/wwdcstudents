@@ -1,0 +1,17 @@
+/* Filter
+---------------------------------------- */
+#filter {
+	position: relative;
+	border-bottom: 1px solid #eee;
+}
+
+#filter-nav {
+	line-height: 60px;
+	li {
+		font-size: 14px;
+		font-weight: 600;
+		text-transform: uppercase;
+		@include inline-block();
+		margin-right: 30px;
+	}
+}

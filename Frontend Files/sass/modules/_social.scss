@@ -1,0 +1,35 @@
+/* Social
+---------------------------------------- */
+#social-nav {
+	position: fixed;
+	right: 0;
+	top: 200px;
+	li {
+		width: 50px;
+		display: block;
+		a {
+			color: #fff;
+			width: 100%;
+			font-size: 20px;
+			line-height: 50px;
+			text-align: center;
+			display: block;
+			@include transition(200ms all ease);
+			&:hover {
+				@include opacity(0.8);
+			}
+			i {
+				display: block;
+			}
+		}
+	}
+	.link {
+		background: #333;
+	}
+	.twitter {
+		background: #55acee;
+	}
+	.facebook {
+		background: #3b5998;
+	}
+}

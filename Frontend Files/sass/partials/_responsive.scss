@@ -1,0 +1,65 @@
+/* Responsive
+---------------------------------------- */
+@media screen and (max-width: 1140px) {
+	.container {
+		margin: 0 20px;
+	}
+}
+
+@media screen and (max-width: 960px) {
+	#stream {
+		li {
+			@include span(4);
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	#stream {
+		li {
+			@include span(6);
+		}
+	}
+	#social-nav {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 540px) {
+
+	#logo {
+		font-size: 18px;
+		line-height: 44px;
+		display: block;
+		margin: 0;
+		text-align: center;
+	}
+	#main-nav {
+		display: none;
+	}
+	
+	/* --- Stream --- */
+	#stream {
+		li {
+			a {
+				.overlay {
+					display: none;
+				}
+			}
+		}
+	}
+	
+	/* --- Pagination --- */
+	#pagination {
+		li {
+			width: 100%;
+			&:first-child {
+				margin-bottom: 10px;
+			}
+			a {
+				display: block;
+				text-align: center;
+			}
+		}
+	}
+}
