@@ -9,7 +9,7 @@ var Student = mongoose.model("Student");
 router.get('/', function(req, res) {
 
   	var currentPage = 1;
-	var numberOfReultsToShow = 8;
+	var numberOfReultsToShow = 12;
 	
 	Student.paginate({}, currentPage, numberOfReultsToShow, function(error, pageCount, paginatedResults, itemCount) {
 	  
@@ -25,7 +25,7 @@ router.get('/', function(req, res) {
 router.get('/page/:pageNumber', function(req, res) {
 
 	var currentPage = req.params.pageNumber;
-	var numberOfReultsToShow = 8;
+	var numberOfReultsToShow = 12;
 
 	if (currentPage == 0) currentPage = 1;
 	
