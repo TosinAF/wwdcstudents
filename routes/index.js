@@ -10,12 +10,16 @@ router.get('/', function(req, res) {
 
   	var currentPage = 1;
 	var numberOfReultsToShow = 12;
+
+	var submissions = [];
 	
 	Student.paginate({}, currentPage, numberOfReultsToShow, function(error, pageCount, paginatedResults, itemCount) {
 	  
 	  if (error) {
 	    console.error(error);
 	  }
+	  
+	  shuffle(paginatedResults);
 
 	  res.render('index', {submissions: paginatedResults, currentPage : Number(currentPage), pageCount : pageCount});
 
@@ -34,6 +38,8 @@ router.get('/page/:pageNumber', function(req, res) {
 	  if (error) {
 	    console.error(error);
 	  }
+
+	  shuffle(paginatedResults);
 
 	  res.render('index', {submissions: paginatedResults, currentPage : Number(currentPage), pageCount : pageCount});
 
@@ -72,3 +78,15 @@ router.get('/:username', function(req, res) {
 });
 
 module.exports = router;
+
+// Private Functions
+
+function shuffle(sourceArray) {
+    for (var n = 0; n < sourceArray.length - 1; n++) {
+        var k = n + Math.floor(Math.random() * (sourceArray.length - n));
+
+        var temp = sourceArray[k];
+        sourceArray[k] = sourceArray[n];
+        sourceArray[n] = temp;
+    }
+}
